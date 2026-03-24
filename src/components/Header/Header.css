@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 0 104px;
+  max-width: 1280px;
+    margin: 0 auto;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+}
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header__link + .header__link {
+  margin-left: 76px;
+}
+
+.header__username {
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 64px;
+  padding: 8px 12px;
+  border: 1px solid #d1d2d6;
+  border-radius: 100px;
+}
+
+.header__union {
+  width: 20px;
+  height: 20px;
+}
