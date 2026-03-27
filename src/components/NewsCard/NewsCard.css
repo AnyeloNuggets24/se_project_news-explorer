@@ -1,2 +1,122 @@
-.news-card {
+.new-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 400px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.new-card__image {
+  display: block;
+  width: 400px;
+  height: 272px;
+  object-fit: cover;
+}
+
+.new-card__image-wrapper {
+  position: relative;
+}
+
+.new-card__mark-group {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.new-card__mark-text {
+  width: 182px;
+  height: 40px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.new-card__mark {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 1);
+  background-image: url("../../assets/marks/Rectangle 8.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.new-card__mark:hover,
+.new-card__mark:active {
+  background-image: url("../../assets/marks/Rectangle 9.svg");
+}
+
+.new-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 24px 24px;
+  box-sizing: border-box;
+}
+
+.new-card__date {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.new-card__date,
+.new-card__title,
+.new-card__text,
+.new-card__source {
+  margin: 0;
+}
+
+.new-card__date,
+.new-card__text,
+.new-card__source {
+  font-family: "Roboto", sans-serif;
+}
+
+.new-card__title {
+  margin: 12px 0 16px;
+  width: 352px;
+  height: 60px;
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 400;
+  min-height: 60px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.new-card__text {
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 22px;
+  min-height: 88px;
+  max-height: 88px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.new-card__source {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #b6bcbf;
+  text-transform: uppercase;
 }

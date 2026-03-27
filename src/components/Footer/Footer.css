@@ -1,2 +1,45 @@
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 104px;
+}
+
+.footer__copyright {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.footer__right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: black;
+}
+
+.footer__logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo {
+  width: 24px;
+  height: 24px;
 }
