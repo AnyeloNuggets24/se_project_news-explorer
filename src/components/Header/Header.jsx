@@ -7,8 +7,10 @@ function Header({ onSearch, onSgnIn, isLoggedIn, currentUser }) {
     <header className="header">
       <Navigation
         onSgnIn={onSgnIn}
+        onLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         currentUser={currentUser}
+
       />
       <SearchForm onSearch={onSearch} />
     </header>

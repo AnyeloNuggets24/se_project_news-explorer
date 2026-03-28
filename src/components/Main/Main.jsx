@@ -29,9 +29,10 @@ function Main({ onSgnIn, isLoggedIn, currentUser }) {
   return (
     <>
       <main className="main">
-        <Header 
+        <Header
           onSearch={handleSearch}
           onSgnIn={onSgnIn}
+          onLogout={handleLogout}
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}
         />

@@ -28,7 +28,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSignUpClick }) {
       return;
     }
 
-    onLogin(email, password);
+    onLogin({ email, password });
   };
 
   return (

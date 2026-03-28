@@ -2,34 +2,45 @@ import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/NewsExplorer.svg";
 
-function Navigation({ onSgnIn }) {
+function Navigation({ onSgnIn, isLoggedIn, currentUser }) {
   return (
-    <>
-      <nav className="navigation">
-        <NavLink to="/" className="navigation__link">
-          <img
-            className="navigation__logo"
-            src={logo}
-            alt="News Explorer logo"
-          />
+    <nav className="navigation">
+      <NavLink to="/" className="navigation__link">
+        <img className="navigation__logo" src={logo} alt="News Explorer logo" />
+      </NavLink>
+      <div className="nav__container">
+        <NavLink to="/" className="navigation__link navigation__link_active">
+          Home
         </NavLink>
-        <div className="nav__container">
-          <NavLink to="/" className="navigation__link navigation__link_active">
-            Home
-          </NavLink>
-          <button className="navigation__button" type="button" onClick={onSgnIn}>
+
+        {isLoggedIn ? (
+          <>
+            <NavLink
+              to="/saved"
+              className="navigation__link"
+              activeClassName="navigation__link_active"
+            >
+              Saved articles
+            </NavLink>
+
+            <div className="navigation__user">
+              <span className="navigation__username">
+                {currentUser?.name || "User"}
+              </span>
+              <button className="navigation__logout">Logout</button>
+            </div>
+          </>
+        ) : (
+          <button
+            className="navigation__button"
+            type="button"
+            onClick={onSgnIn}
+          >
             Sign in
           </button>
-          {/* <a href="/saved" className="navigation__link">
-          Saved articles
-        </a>
-        <div className="navigation__user">
-          <span className="navigation__username">Elise</span>
-          <img className="navigation__union" src={union} alt="user icon" />
-        </div> */}
-        </div>
-      </nav>
-    </>
+        )}
+      </div>
+    </nav>
   );
 }
 

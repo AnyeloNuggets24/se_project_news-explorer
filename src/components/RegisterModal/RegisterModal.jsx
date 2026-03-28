@@ -2,7 +2,7 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function RegisterModal({ isOpen, onClose, onRegister }) {
+function RegisterModal({ isOpen, onClose, onRegister, onSignInClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -57,6 +57,8 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
         required
       />
     </ModalWithForm>
+
+    
   );
 }
 

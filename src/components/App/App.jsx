@@ -31,6 +31,11 @@ function App() {
     setIsLoginOpen(false);
   };
 
+  const handleLogout =() => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+  };
+
   const handleRegister = () => {
     setIsRegisterOpen(false);
     setIsRegisterSuccessOpen(true);
