@@ -1,2 +1,28 @@
-.register-modal {
+.register-modal__label {
+  margin-top: 8px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #2f71e5;
+}
+
+.register-modal__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d1d2d6;
+  padding: 0 0 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1b22;
+  box-sizing: border-box;
+}
+
+.register-modal__input::placeholder {
+  color: #b6bcbf;
+}
+
+.register-modal__input:focus {
+  outline: none;
+  border-bottom-color: #2f71e5;
 }

@@ -1,2 +1,65 @@
-.login-modal {
+.login-modal__label {
+  margin-top: 8px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #2f71e5;
+}
+
+.login-modal__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d1d2d6;
+  padding: 0 0 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1b22;
+  box-sizing: border-box;
+}
+
+.login-modal__input::placeholder {
+  color: #b6bcbf;
+}
+
+.login-modal__input:focus {
+  outline: none;
+  border-bottom-color: #2f71e5;
+}
+
+.login-modal__input_error {
+  border-bottom-color: rgba(255, 0, 0, 1) !important;
+}
+
+.login-modal__error {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(255, 0, 0, 1);
+}
+
+.login-modal__footer {
+  margin-top: 16px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.login-modal__footer-text {
+  color: #1a1b22;
+}
+
+.login-modal__footer-link {
+  color: #2f71e5;
+}
+
+.login-modal__footer-button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
 }

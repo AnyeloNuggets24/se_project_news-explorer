@@ -2,7 +2,7 @@ import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/NewsExplorer.svg";
 
-function Navigation() {
+function Navigation({ onSgnIn }) {
   return (
     <>
       <nav className="navigation">
@@ -17,7 +17,9 @@ function Navigation() {
           <NavLink to="/" className="navigation__link navigation__link_active">
             Home
           </NavLink>
-          <button className="navigation__button">Sign in</button>
+          <button className="navigation__button" type="button" onClick={onSgnIn}>
+            Sign in
+          </button>
           {/* <a href="/saved" className="navigation__link">
           Saved articles
         </a>
