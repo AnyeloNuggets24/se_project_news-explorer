@@ -2,7 +2,7 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function RegisterModal({ isOpen, onClose, onRegister, onSignInClick }) {
+function RegisterModal({ isOpen, onClose, onRegister, onOpenSignIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -19,6 +19,19 @@ function RegisterModal({ isOpen, onClose, onRegister, onSignInClick }) {
       onClose={onClose}
       buttonText="Sign up"
       onSubmit={handleSubmit}
+      footerClassName="register-modal__footer"
+      footer={
+        <>
+          <span className="register-modal__footer-text">or </span>
+          <button
+            className="register-modal__footer-button"
+            type="button"
+            onClick={onOpenSignIn}
+          >
+            Sign in
+          </button>
+        </>
+      }
     >
       <label className="register-modal__label" htmlFor="register-email">
         Email
@@ -57,8 +70,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSignInClick }) {
         required
       />
     </ModalWithForm>
-
-    
   );
 }
 

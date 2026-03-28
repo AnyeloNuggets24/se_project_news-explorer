@@ -31,7 +31,7 @@ function App() {
     setIsLoginOpen(false);
   };
 
-  const handleLogout =() => {
+  const handleLogout = () => {
     setIsLoggedIn(false);
     setCurrentUser(null);
   };
@@ -46,9 +46,10 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Main
-            onSgnIn={openLoginModal}
+            onSignIn={openLoginModal}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
+            onLogout={handleLogout}
           />
         </Route>
       </Switch>
@@ -57,17 +58,18 @@ function App() {
         isOpen={isLoginOpen}
         onClose={() => setIsLoginOpen(false)}
         onLogin={handleLogin}
-        onSignUpClick={openRegisterModal}
+        onOpenSignUp={openRegisterModal}
       />
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
         onRegister={handleRegister}
+        onOpenSignIn={openLoginModal}
       />
       <RegistrationSuccessModal
         isOpen={isRegisterSuccessOpen}
         onClose={() => setIsRegisterSuccessOpen(false)}
-        onSignInClick={openLoginModal}
+        onOpenSignIn={openLoginModal}
       />
     </div>
   );

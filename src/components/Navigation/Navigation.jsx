@@ -1,8 +1,9 @@
 import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/NewsExplorer.svg";
+import logoutWhite from "../../assets/logoutwhite.png";
 
-function Navigation({ onSgnIn, isLoggedIn, currentUser }) {
+function Navigation({ onSignIn, onLogout, isLoggedIn, currentUser }) {
   return (
     <nav className="navigation">
       <NavLink to="/" className="navigation__link">
@@ -23,18 +24,26 @@ function Navigation({ onSgnIn, isLoggedIn, currentUser }) {
               Saved articles
             </NavLink>
 
-            <div className="navigation__user">
+            <button
+              className="navigation__account"
+              type="button"
+              onClick={onLogout}
+            >
               <span className="navigation__username">
-                {currentUser?.name || "User"}
+                {currentUser?.name || "Elise"}
               </span>
-              <button className="navigation__logout">Logout</button>
-            </div>
+              <img
+                className="navigation__logout-icon"
+                src={logoutWhite}
+                alt="Log out"
+              />
+            </button>
           </>
         ) : (
           <button
             className="navigation__button"
             type="button"
-            onClick={onSgnIn}
+            onClick={onSignIn}
           >
             Sign in
           </button>

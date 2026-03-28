@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 import { useState } from "react";
 import { getNews } from "../../utils/api";
 
-function Main({ onSgnIn, isLoggedIn, currentUser }) {
+function Main({ onSignIn, onLogout, isLoggedIn, currentUser }) {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -31,8 +31,8 @@ function Main({ onSgnIn, isLoggedIn, currentUser }) {
       <main className="main">
         <Header
           onSearch={handleSearch}
-          onSgnIn={onSgnIn}
-          onLogout={handleLogout}
+          onSignIn={onSignIn}
+          onLogout={onLogout}
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}
         />

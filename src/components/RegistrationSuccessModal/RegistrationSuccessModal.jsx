@@ -1,6 +1,6 @@
 import "./RegistrationSuccessModal.css";
 
-function RegistrationSuccessModal({ isOpen, onClose, onSignInClick }) {
+function RegistrationSuccessModal({ isOpen, onClose, onOpenSignIn }) {
   if (!isOpen) {
     return null;
   }
@@ -23,7 +23,7 @@ function RegistrationSuccessModal({ isOpen, onClose, onSignInClick }) {
           <button
             className="registration-success-modal__signin"
             type="button"
-            onClick={onSignInClick}
+            onClick={onOpenSignIn}
           >
             Sign in
           </button>

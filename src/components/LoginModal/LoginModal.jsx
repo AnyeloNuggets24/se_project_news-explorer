@@ -2,7 +2,7 @@ import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function LoginModal({ isOpen, onClose, onLogin, onSignUpClick }) {
+function LoginModal({ isOpen, onClose, onLogin, onOpenSignUp }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -45,7 +45,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSignUpClick }) {
           <button
             className="login-modal__footer-link login-modal__footer-button"
             type="button"
-            onClick={onSignUpClick}
+            onClick={onOpenSignUp}
           >
             Sign up
           </button>
