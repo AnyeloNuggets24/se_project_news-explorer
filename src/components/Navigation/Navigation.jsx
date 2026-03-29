@@ -6,31 +6,32 @@ import logoutWhite from "../../assets/logoutwhite.png";
 function Navigation({ onSignIn, onLogout, isLoggedIn, currentUser }) {
   return (
     <nav className="navigation">
-      <NavLink to="/" className="navigation__link">
-        <img className="navigation__logo" src={logo} alt="News Explorer logo" />
+      <NavLink to="/" className="navigation__logo">
+        <img
+          className="navigation__logo-img"
+          src={logo}
+          alt="News Explorer logo"
+        />
       </NavLink>
+
       <div className="nav__container">
-        <NavLink to="/" className="navigation__link navigation__link_active">
-          Home
+        <NavLink to="/" activeClassName="navigation__link_active">
+          <button className="navigation__link">Home</button>
         </NavLink>
 
         {isLoggedIn ? (
           <>
-            <NavLink
-              to="/saved"
-              className="navigation__link"
-              activeClassName="navigation__link_active"
-            >
-              Saved articles
+            <NavLink to="/saved" activeClassName="navigation__link_active">
+              <button className="navigation__link">Saved articles</button>
             </NavLink>
 
             <button
-              className="navigation__account"
+              className="navigation__button navigation__button_logged-in"
               type="button"
               onClick={onLogout}
             >
               <span className="navigation__username">
-                {currentUser?.name || "Elise"}
+                {currentUser?.name || "Elies"}
               </span>
               <img
                 className="navigation__logout-icon"

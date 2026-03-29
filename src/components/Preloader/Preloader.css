@@ -1,2 +1,46 @@
 .preloader {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.preloader__spinner {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #1a1b22 0deg,
+    rgba(209, 210, 214, 0) 360deg
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1px),
+    #000 0
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 1px), #000 0);
+  animation: preloader-spin 1s linear infinite;
+  opacity: 1;
+}
+
+.preloader__text {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+}
+
+@keyframes preloader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

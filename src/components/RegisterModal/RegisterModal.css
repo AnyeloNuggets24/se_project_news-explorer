@@ -26,3 +26,22 @@
   outline: none;
   border-bottom-color: #2f71e5;
 }
+
+.register-modal__input_error {
+  border-bottom-color: rgba(255, 0, 0, 1) !important;
+}
+
+.register-modal__error {
+  width: 100%;
+  margin: 9px 0 0;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: rgba(255, 0, 0, 1);
+}
+
+.register-modal__error + .modal__submit {
+  margin-top: 0;
+}

@@ -2,13 +2,31 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-function RegisterModal({ isOpen, onClose, onRegister, onOpenSignIn }) {
+function RegisterModal({ isOpen, onClose, onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!value || isValidEmail(value)) {
+      setEmailError("");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isValidEmail(email)) {
+      setEmailError("This email is not available.");
+      return;
+    }
+
     onRegister(name, email, password);
   };
 
@@ -19,30 +37,17 @@ function RegisterModal({ isOpen, onClose, onRegister, onOpenSignIn }) {
       onClose={onClose}
       buttonText="Sign up"
       onSubmit={handleSubmit}
-      footerClassName="register-modal__footer"
-      footer={
-        <>
-          <span className="register-modal__footer-text">or </span>
-          <button
-            className="register-modal__footer-button"
-            type="button"
-            onClick={onOpenSignIn}
-          >
-            Sign in
-          </button>
-        </>
-      }
     >
       <label className="register-modal__label" htmlFor="register-email">
         Email
       </label>
       <input
         id="register-email"
-        className="register-modal__input"
+        className={`register-modal__input ${emailError ? "register-modal__input_error" : ""}`}
         type="email"
         placeholder="Email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleEmailChange}
         required
       />
       <label className="register-modal__label" htmlFor="register-password">
@@ -69,6 +74,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onOpenSignIn }) {
         onChange={(e) => setName(e.target.value)}
         required
       />
+      {emailError ? (
+        <p className="register-modal__error">{emailError}</p>
+      ) : null}
     </ModalWithForm>
   );
 }
