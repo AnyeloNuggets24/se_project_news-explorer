@@ -37,6 +37,15 @@
   font-size: 12px;
   line-height: 40px;
   text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.new-card__mark-group:hover .new-card__mark-text,
+.new-card__mark-group:focus-within .new-card__mark-text {
+  opacity: 1;
+  visibility: visible;
 }
 
 .new-card__mark {

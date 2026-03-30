@@ -1,10 +1,11 @@
 import "./App.css";
 import Main from "../Main/Main";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { useState } from "react";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSuccessModal";
+import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -12,6 +13,7 @@ function App() {
   const [isRegisterSuccessOpen, setIsRegisterSuccessOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [saveArticles, setSaveArticles] = useState([]);
 
   const openLoginModal = () => {
     setIsRegisterOpen(false);
@@ -41,16 +43,42 @@ function App() {
     setIsRegisterSuccessOpen(true);
   };
 
+  const handleSaveArticle = (article) => {
+    setSaveArticles((prev) => {
+      const exsist = prev.find((item) => item.id !== article.id);
+
+      if (exsist) {
+        // Remove article if it already exists
+        return prev.filter((item) => item.id !== article.id);
+      }
+      return [article, ...prev];
+    });
+  };
+
   return (
     <div className="app">
       <Switch>
         <Route exact path="/">
           <Main
             onSignIn={openLoginModal}
+            onLogout={handleLogout}
             isLoggedIn={isLoggedIn}
             currentUser={currentUser}
-            onLogout={handleLogout}
+            onSaveArticle={handleSaveArticle}
+            saveArticles={saveArticles}
           />
+        </Route>
+
+        <Route path="/saved">
+          {isLoggedIn ? (
+            <SavedNews
+              savedArticles={saveArticles}
+              isLoggedIn={isLoggedIn}
+              onSaveArticle={handleSaveArticle}
+            />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
       </Switch>
 

@@ -6,7 +6,14 @@ import Footer from "../Footer/Footer";
 import { useState } from "react";
 import { getNews } from "../../utils/api";
 
-function Main({ onSignIn, onLogout, isLoggedIn, currentUser }) {
+function Main({
+  onSignIn,
+  onLogout,
+  isLoggedIn,
+  currentUser,
+  onSaveArticle,
+  saveArticles,
+}) {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -41,6 +48,9 @@ function Main({ onSignIn, onLogout, isLoggedIn, currentUser }) {
           cards={cards}
           isLoading={isLoading}
           hasSearched={hasSearched}
+          isLoggedIn={isLoggedIn}
+          onSaveArticle={onSaveArticle}
+          saveArticles={saveArticles}
         />
 
         <About />

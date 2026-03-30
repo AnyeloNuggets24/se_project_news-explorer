@@ -3,7 +3,14 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import notFoundImage from "../../assets/not-found.png";
 
-function NewsCardList({ cards, isLoading, hasSearched }) {
+function NewsCardList({
+  cards,
+  isLoading,
+  hasSearched,
+  isLoggedIn,
+  onSaveArticle,
+  saveArticles,
+}) {
   if (isLoading) {
     return <Preloader />;
   }
@@ -29,7 +36,13 @@ function NewsCardList({ cards, isLoading, hasSearched }) {
       <h2 className="news-card-list__title">Search results</h2>
       <div className="news-card-list__grid">
         {cards.map((card) => (
-          <NewsCard key={card.id} card={card} />
+          <NewsCard
+            key={card.id}
+            card={card}
+            isLoggedIn={isLoggedIn}
+            onSaveArticle={onSaveArticle}
+            saveArticles={saveArticles}
+          />
         ))}
       </div>
       <button className="news-card-list__button" type="button">
