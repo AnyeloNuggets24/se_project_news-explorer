@@ -62,7 +62,15 @@ se_project_news-explorer/
 └── README.md
 ```
 
-## Screenshots
+## Screenshots / Demo
+
+### Live Demo
+
+ - Project Pitch Video
+ 
+ Check out [this video]( https://drive.google.com/file/d/1kRUMo8oSAKmT6YtJJXRAVUDDm0TvnLvU/view?usp=drive_link), where I describe my 
+ project and some challenges I faced while building it.
+
 
 ### Home Page
 
@@ -109,6 +117,6 @@ use this for API Key : VITE_NEWS_API_KEY=your_api_key_here
 - tablet
 - mobile
 
-## My Repository 
+## My Repository
 
-My Repository will be found right here this link: 
+My Repository will be found right here this link:
