@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 630px) {
   .registration-success-modal__container {
     height: auto;
     min-height: 182px;
@@ -42,5 +42,21 @@
   .registration-success-modal__title {
     width: 100%;
     max-width: 315px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .registration-success-modal__container {
+    min-height: 168px;
+    padding: 28px 12px 18px;
+  }
+
+  .registration-success-modal__title {
+    font-size: 20px;
+  }
+
+  .registration-success-modal__signin {
+    margin-top: 12px;
+    font-size: 16px;
   }
 }

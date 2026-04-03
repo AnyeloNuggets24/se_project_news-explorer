@@ -59,9 +59,15 @@ function LoginModal({ isOpen, onClose, onLogin, onOpenSignUp }) {
         id="login-email"
         className={`login-modal__input ${emailError ? "login-modal__input_error" : ""}`}
         type="email"
+        name="email"
+        autoComplete="email"
+        inputMode="email"
+        enterKeyHint="next"
         placeholder="Email"
         value={email}
         onChange={handleEmailChange}
+        autoFocus
+        required
       />
       {emailError ? (
         <p className="login-modal__error" aria-live="polite">
@@ -75,9 +81,13 @@ function LoginModal({ isOpen, onClose, onLogin, onOpenSignUp }) {
         id="login-password"
         className="login-modal__input"
         type="password"
+        name="password"
+        autoComplete="current-password"
+        enterKeyHint="go"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        required
       />
     </ModalWithForm>
   );

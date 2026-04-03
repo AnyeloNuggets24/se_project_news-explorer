@@ -45,9 +45,14 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
         id="register-email"
         className={`register-modal__input ${emailError ? "register-modal__input_error" : ""}`}
         type="email"
+        name="email"
+        autoComplete="email"
+        inputMode="email"
+        enterKeyHint="next"
         placeholder="Email"
         value={email}
         onChange={handleEmailChange}
+        autoFocus
         required
       />
       <label className="register-modal__label" htmlFor="register-password">
@@ -57,6 +62,9 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
         id="register-password"
         className="register-modal__input"
         type="password"
+        name="password"
+        autoComplete="new-password"
+        enterKeyHint="next"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
@@ -69,6 +77,9 @@ function RegisterModal({ isOpen, onClose, onRegister }) {
         id="register-name"
         className="register-modal__input"
         type="text"
+        name="name"
+        autoComplete="name"
+        enterKeyHint="done"
         placeholder="Username"
         value={name}
         onChange={(e) => setName(e.target.value)}

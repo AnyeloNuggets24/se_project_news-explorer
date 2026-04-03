@@ -26,9 +26,14 @@ function SearchForm({ onSearch }) {
         <input
           className="search-form__input"
           type="text"
+          name="search"
+          autoComplete="off"
+          inputMode="search"
+          enterKeyHint="search"
           placeholder="Enter topic"
           value={query}
           onChange={handleChange}
+          required
         />
         <button className="search-form__button" type="submit">
           Search

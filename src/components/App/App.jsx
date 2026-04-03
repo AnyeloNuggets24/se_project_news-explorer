@@ -45,12 +45,14 @@ function App() {
 
   const handleSaveArticle = (article) => {
     setSaveArticles((prev) => {
-      const exsist = prev.find((item) => item.id !== article.id);
+      const articleKey = article.url || article.id;
+      const exists = prev.some((item) => (item.url || item.id) === articleKey);
 
-      if (exsist) {
+      if (exists) {
         // Remove article if it already exists
-        return prev.filter((item) => item.id !== article.id);
+        return prev.filter((item) => (item.url || item.id) !== articleKey);
       }
+
       return [article, ...prev];
     });
   };
@@ -74,6 +76,9 @@ function App() {
             <SavedNews
               savedArticles={saveArticles}
               isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
+              onSignIn={openLoginModal}
+              onLogout={handleLogout}
               onSaveArticle={handleSaveArticle}
             />
           ) : (

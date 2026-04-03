@@ -10,6 +10,7 @@ function NewsCardList({
   isLoggedIn,
   onSaveArticle,
   saveArticles,
+  isSavedPage = false,
 }) {
   if (isLoading) {
     return <Preloader />;
@@ -42,6 +43,7 @@ function NewsCardList({
             isLoggedIn={isLoggedIn}
             onSaveArticle={onSaveArticle}
             saveArticles={saveArticles}
+            isSavedPage={isSavedPage}
           />
         ))}
       </div>

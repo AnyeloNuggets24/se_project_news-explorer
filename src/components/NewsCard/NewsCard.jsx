@@ -1,7 +1,26 @@
 import "./NewsCard.css";
 
-function NewsCard({ card, isLoggedIn, onSaveArticle, saveArticles }) {
-  const isSaved = saveArticles.some((item) => item.id === card.id);
+function NewsCard({
+  card,
+  isLoggedIn,
+  onSaveArticle = () => {},
+  saveArticles = [],
+  isSavedPage = false,
+}) {
+  const cardKey = card.url || card.id;
+  const isSaved = saveArticles.some(
+    (item) => (item.url || item.id) === cardKey,
+  );
+
+  const markHintText = isSavedPage
+    ? "Remove from saved"
+    : !isLoggedIn
+      ? "Sign in to save articles"
+      : "";
+
+  const markClassName = isSavedPage
+    ? "new-card__mark new-card__mark_delete"
+    : `new-card__mark ${isSaved ? "new-card__mark_saved" : ""}`;
 
   const handleSaveClick = () => {
     if (!isLoggedIn) return;
@@ -13,15 +32,19 @@ function NewsCard({ card, isLoggedIn, onSaveArticle, saveArticles }) {
       <div className="new-card__image-wrapper">
         <img className="new-card__image" src={card.image} alt={card.title} />
 
+        {isSavedPage ? (
+          <p className="new-card__keyword">{card.keyword || "General"}</p>
+        ) : null}
+
         <div className="new-card__mark-group">
-          {!isLoggedIn && (
-            <p className="new-card__mark-text">Sign in to save articles</p>
-          )}
+          {markHintText ? (
+            <p className="new-card__mark-text">{markHintText}</p>
+          ) : null}
 
           <button
-            className={`new-card__mark ${isSaved ? "new-card__mark_saved" : ""}`}
+            className={markClassName}
             type="button"
-            aria-label="Save article"
+            aria-label={isSavedPage ? "Remove article" : "Save article"}
             onClick={handleSaveClick}
           />
         </div>

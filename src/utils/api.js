@@ -29,7 +29,8 @@ export function getNews(query) {
     })
     .then((data) =>
       (data.articles || []).map((article, index) => ({
-        id: index,
+        id: article.url || index,
+        keyword: query.trim(),
         title: article.title || "Untitled",
         description: article.description || "No description available.",
         date: new Date(article.publishedAt).toLocaleDateString("en-US", {

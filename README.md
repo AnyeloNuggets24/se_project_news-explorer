@@ -1,16 +1,114 @@
-# React + Vite
+# New Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application that allow users to search for news articles, save their favorites, and mangae them in a personal accounts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search for news articles by keyword and title
+- Display results as interactive cards
+- Save and remove articles
+- Authentication UI (login & registration modals)
+- Saved Article page
+- Loading state ("Searching for news...")
+- Empty state ("Nothing found")
+- Fully reponsive (desktop, tablet, and mobile)
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- React Router DOM
+- Vite
+- CSS (Flexbox and Grid)
+- News API
 
-## Expanding the ESLint configuration
+## API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project uses the News API to fetch real time news data: https://newsapi.org/
+
+## Project Structure
+
+```text
+se_project_news-explorer/
+├── .env
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── vite.config.js
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── About/
+│   │   ├── App/
+│   │   ├── Footer/
+│   │   ├── Header/
+│   │   ├── LoginModal/
+│   │   ├── Main/
+│   │   ├── ModalWithForm/
+│   │   ├── Navigation/
+│   │   ├── NewsCard/
+│   │   ├── NewsCardList/
+│   │   ├── Preloader/
+│   │   ├── RegisterModal/
+│   │   ├── RegistrationSuccessModal/
+│   │   ├── SavedNews/
+│   │   └── SearchForm/
+│   ├── fonts.css
+│   ├── index.css
+│   ├── main.jsx
+│   ├── utils/
+│   └── vendor/
+└── README.md
+```
+
+## Screenshots
+
+### Home Page
+
+![Home Page](./src/assets/screenshots/Home.png)
+
+### Search Results
+
+![Search Results](./src/assets/screenshots/Search.png)
+
+### Saved Articles
+
+![Saved Articles](./src/assets/screenshots/Articles.png)
+
+### Account Modal
+
+![Account Modal](./src/assets/screenshots/accounts.png)
+
+### Mobile View
+
+![Mobile View](./src/assets/screenshots/moblie.png)
+
+### Mobile Menu
+
+![Mobile Menu](./src/assets/screenshots/mobilemenu.png)
+
+### Empty State
+
+![Empty State](./src/assets/screenshots/NoArticles.png)
+
+## Installation steps
+
+- npm install
+- npm run preview
+
+## Environment variables
+
+create a file : .env
+
+use this for API Key : VITE_NEWS_API_KEY=your_api_key_here
+
+## Responsive design note
+
+- desktop
+- tablet
+- mobile
+
+## My Repository 
+
+My Repository will be found right here this link: 
