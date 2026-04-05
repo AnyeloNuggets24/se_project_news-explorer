@@ -1,7 +1,21 @@
 import "./NewsCardList.css";
+import { useEffect, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import notFoundImage from "../../assets/not-found.png";
+
+const MOBILE_BREAKPOINT = 630;
+const MOBILE_INITIAL_CARDS = 3;
+const DESKTOP_INITIAL_CARDS = 6;
+const CARDS_INCREMENT = 6;
+
+const getInitialCardsCount = () => {
+  if (typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT) {
+    return MOBILE_INITIAL_CARDS;
+  }
+
+  return DESKTOP_INITIAL_CARDS;
+};
 
 function NewsCardList({
   cards,
@@ -12,6 +26,31 @@ function NewsCardList({
   saveArticles,
   isSavedPage = false,
 }) {
+  const [visibleCardsCount, setVisibleCardsCount] = useState(
+    isSavedPage ? cards.length : getInitialCardsCount(),
+  );
+
+  useEffect(() => {
+    setVisibleCardsCount(isSavedPage ? cards.length : getInitialCardsCount());
+  }, [cards, isSavedPage]);
+
+  useEffect(() => {
+    if (isSavedPage || typeof window === "undefined") {
+      return undefined;
+    }
+
+    const handleResize = () => {
+      setVisibleCardsCount((currentCount) => {
+        const nextMinimum = getInitialCardsCount();
+        return currentCount < nextMinimum ? nextMinimum : currentCount;
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isSavedPage]);
+
   if (isLoading) {
     return <Preloader />;
   }
@@ -32,11 +71,22 @@ function NewsCardList({
     );
   }
 
+  if (!cards.length && !hasSearched) {
+    return null;
+  }
+
+  const visibleCards = isSavedPage ? cards : cards.slice(0, visibleCardsCount);
+  const canShowMore = !isSavedPage && cards.length > visibleCardsCount;
+
+  const handleShowMore = () => {
+    setVisibleCardsCount((prevCount) => prevCount + CARDS_INCREMENT);
+  };
+
   return (
     <section className="news-card-list">
       <h2 className="news-card-list__title">Search results</h2>
       <div className="news-card-list__grid">
-        {cards.map((card) => (
+        {visibleCards.map((card) => (
           <NewsCard
             key={card.id}
             card={card}
@@ -47,9 +97,15 @@ function NewsCardList({
           />
         ))}
       </div>
-      <button className="news-card-list__button" type="button">
-        Show more
-      </button>
+      {canShowMore && (
+        <button
+          className="news-card-list__button"
+          type="button"
+          onClick={handleShowMore}
+        >
+          Show more
+        </button>
+      )}
     </section>
   );
 }

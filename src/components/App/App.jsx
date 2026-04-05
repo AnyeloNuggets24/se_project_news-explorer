@@ -1,6 +1,7 @@
 import "./App.css";
 import Main from "../Main/Main";
 import { Route, Switch, Redirect } from "react-router-dom";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { useState } from "react";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -71,20 +72,16 @@ function App() {
           />
         </Route>
 
-        <Route path="/saved">
-          {isLoggedIn ? (
-            <SavedNews
-              savedArticles={saveArticles}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-              onSignIn={openLoginModal}
-              onLogout={handleLogout}
-              onSaveArticle={handleSaveArticle}
-            />
-          ) : (
-            <Redirect to="/" />
-          )}
-        </Route>
+        <ProtectedRoute path="/saved" isLoggedIn={isLoggedIn}>
+          <SavedNews
+            savedArticles={saveArticles}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            onSignIn={openLoginModal}
+            onLogout={handleLogout}
+            onSaveArticle={handleSaveArticle}
+          />
+        </ProtectedRoute>
       </Switch>
 
       <LoginModal

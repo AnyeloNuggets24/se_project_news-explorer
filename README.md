@@ -68,7 +68,7 @@ se_project_news-explorer/
 
  - Project Pitch Video
  
- Check out [this video]( https://drive.google.com/file/d/1kRUMo8oSAKmT6YtJJXRAVUDDm0TvnLvU/view?usp=drive_link), where I describe my 
+ Check out [this video]( https://drive.google.com/file/d/1kRUMo8oSAKmT6YtJJXRAVUDDm0TvnLvU/view?usp=sharing), where I describe my 
  project and some challenges I faced while building it.
 
 
@@ -120,3 +120,5 @@ use this for API Key : VITE_NEWS_API_KEY=your_api_key_here
 ## My Repository
 
 My Repository will be found right here this link:
+
+https://github.com/AnyeloNuggets24/se_project_news-explorer/pull/1
