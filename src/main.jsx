@@ -11,3 +11,9 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </StrictMode>,
 );
+
+
+/*
+You will need to use React Router’s HashRouter component 
+(instead of BrowserRouter) to wrap all your routes.
+*/
