@@ -1,0 +1,9 @@
+@import "./fonts.css";
+@import "./vendor/normalize.css";
+
+a,
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: url("./assets/cursor.svg"), pointer;
+}

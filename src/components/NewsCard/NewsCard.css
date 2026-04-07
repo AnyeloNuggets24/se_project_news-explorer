@@ -1,0 +1,241 @@
+.new-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.new-card__image {
+  display: block;
+  width: 100%;
+  height: 272px;
+  object-fit: cover;
+}
+
+.new-card__image-wrapper {
+  position: relative;
+}
+
+.new-card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 87px;
+  height: 40px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1a1b22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.new-card__mark-group {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.new-card__mark-text {
+  width: 182px;
+  height: 40px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.new-card__mark-group:hover .new-card__mark-text,
+.new-card__mark-group:focus-within .new-card__mark-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.new-card__mark {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 1);
+  background-image: url("../../assets/marks/Rectangle 8.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.new-card__mark:hover,
+.new-card__mark:active {
+  background-image: url("../../assets/marks/Rectangle 9.svg");
+}
+
+.new-card__mark_saved,
+.new-card__mark_saved:hover,
+.new-card__mark_saved:active {
+  background-image: url("../../assets/marks/Rectangle 10.svg");
+}
+
+.new-card__mark_delete {
+  background-image: url("../../assets/Trash/Trash.png");
+}
+
+.new-card__mark_delete:hover,
+.new-card__mark_delete:active {
+  background-image: url("../../assets/Trash/BlackTrash.png");
+}
+
+.new-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 24px 24px;
+  box-sizing: border-box;
+}
+
+.new-card__date {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.new-card__date,
+.new-card__title,
+.new-card__text,
+.new-card__source {
+  margin: 0;
+}
+
+.new-card__date,
+.new-card__text,
+.new-card__source {
+  font-family: "Roboto", sans-serif;
+}
+
+.new-card__title {
+  margin: 12px 0 16px;
+  width: 100%;
+  max-width: 352px;
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 400;
+  min-height: 60px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.new-card__text {
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 22px;
+  min-height: 88px;
+  max-height: 88px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.new-card__source {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #b6bcbf;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 630px) {
+  .new-card__content {
+    padding: 16px;
+  }
+
+  .new-card__title {
+    margin: 10px 0 12px;
+    min-height: 56px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .new-card__source {
+    margin-top: 28px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .new-card__image {
+    height: 220px;
+  }
+
+  .new-card__keyword,
+  .new-card__mark-group {
+    top: 12px;
+  }
+
+  .new-card__keyword {
+    left: 12px;
+  }
+
+  .new-card__mark-group {
+    right: 12px;
+  }
+
+  .new-card__title {
+    min-height: auto;
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .new-card__image {
+    height: 196px;
+  }
+
+  .new-card__content {
+    padding: 14px 12px;
+  }
+
+  .new-card__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .new-card__text {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .new-card__source {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+}
